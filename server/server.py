@@ -31,4 +31,4 @@ def classify():
         return render_template('output.html', prediction = output)
 
 if __name__ == "__main__":
-    app.run(port=5500, debug = True)
+    app.run(port=5500)
