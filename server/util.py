@@ -5,8 +5,19 @@ import joblib
 from keras.models import load_model
 from keras.applications.vgg19 import preprocess_input, decode_predictions
 import matplotlib.pyplot as plt
+import requests
 
 model = load_model('VGG19_test_model.h5')
+
+def download_image(url, filename):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Check for any HTTP errors
+        with open(filename, 'wb') as file:
+            file.write(response.content)
+        print(f"Image downloaded successfully as {filename}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
 
 def process_image(path):
     img = tf.keras.utils.load_img(path, target_size=(256,256))
