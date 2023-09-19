@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block body %}
+   <div class="container py-5">
+        <!-- For demo purpose -->
+        <header class="text-white text-center" style="">
+            <h1 class="display-4" style="font-weight: 900; color: rgb(5, 150, 5);">Upload Image of Plant </h1>
+            <p class="lead " style="font-weight: bold; margin-bottom: 50px; color: rgb(14, 167, 14);">Identify Your Plant</p>        
+                  <!-- Uploaded image area-->
+            <!-- <img  src="logo.png" alt="image" width="150" class="mb-4"> -->
+            <div class="image-area text-danger mt-4" style="max-width: 30rem; margin-left: auto; margin-right: auto; border-color: green; color: green;"><img id="imageResult" src="#" alt=""
+                class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+        </header>
+        <div class="row py-4 mt-5">
+            <div class="col-lg-6 mx-auto">
+                <!-- Upload image input-->
+                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-success shadow-sm" style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            ">
+                    <form action="/classify" method="post" enctype="multipart/form-data">
+                        <input name="upload" id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                        <label id="upload-label" for="upload" class="font-weight-light text-muted"></label>
+                        <div class="input-group-append" style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                ">
+                            <label for="upload" class="btn btn-light rounded-pill px-4"> <i
+                                    class="fa fa-cloud-upload mr-2 text-muted" ></i><small
+                                    class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                                
+                                    <button class="btn btn-light mx-5">Upload</button>
+                        </div>
+                    </form>
+                </div>     
+            </div>
+        </div>
+    </div>
+   
+    {% endblock %}
